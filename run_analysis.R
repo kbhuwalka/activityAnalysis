@@ -65,5 +65,8 @@ main <- group_by(main, subject, activity)
 #and 180 rows for (30 subjects * 6 Activities)
 ########################################
 
+# Applies mean function to all columns except the columns used for groups
+# i.e, subject and activity
 summaryTable <- summarise_each(main, "mean")
-write.table(summaryTable, "summary.txt", sep = "\t")
+#Write to a file
+write.table(summaryTable, "summary.txt", sep = "\t", row.names = FALSE)
